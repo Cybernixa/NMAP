@@ -1,0 +1,238 @@
+/* --- Theme Variables --- */
+:root {
+    --dark-blue-primary: #0A192F; /* Deep navy */
+    --dark-blue-secondary: #172A46; /* Slightly lighter navy for cards/elements */
+    --accent-red-primary: #E53935; /* Bright, strong red */
+    --accent-red-hover: #C62828; /* Darker red for hover */
+    --text-primary: #CCD6F6; /* Light blueish-gray, high readability */
+    --text-secondary: #8892B0; /* Muted gray for less emphasis */
+    --border-color: #29456B; /* Subtle border for cards */
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --danger-color: var(--accent-red-primary);
+}
+
+/* --- Global Styles --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-blue-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 56px; /* Adjust if navbar height changes */
+}
+
+.main-content {
+    flex: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* --- Header/Navbar --- */
+.site-header {
+    background-color: var(--dark-blue-secondary);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    color: var(--text-primary) !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.navbar-brand svg {
+    color: var(--accent-red-primary);
+}
+
+/* --- Scan Controls --- */
+.scan-controls-card {
+    background-color: var(--dark-blue-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+
+.scan-controls-card h2 {
+    color: var(--text-primary);
+}
+
+#target.form-control {
+    background-color: #293a52; /* Darker input field */
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-right: none; /* For seamless button connection */
+}
+
+#target.form-control:focus {
+    background-color: #30415d;
+    border-color: var(--accent-red-primary);
+    box-shadow: 0 0 0 0.25rem rgba(229, 57, 53, 0.25); /* Red glow */
+    color: var(--text-primary);
+}
+#target.form-control::placeholder {
+    color: var(--text-secondary);
+}
+
+
+.btn-scan {
+    background-color: var(--accent-red-primary);
+    color: #fff;
+    border: 1px solid var(--accent-red-primary);
+    font-weight: bold;
+    padding: 0.5rem 1.5rem; /* Match form-control-lg padding */
+}
+
+.btn-scan:hover, .btn-scan:focus {
+    background-color: var(--accent-red-hover);
+    border-color: var(--accent-red-hover);
+    color: #fff;
+}
+
+/* --- Loading Spinner --- */
+#loading-spinner p {
+    color: var(--text-secondary);
+}
+.spinner-border.text-light { /* Bootstrap override for spinner color */
+    color: var(--accent-red-primary) !important;
+}
+
+
+/* --- Results Section --- */
+#results-section h3, #results-section h4 {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent-red-primary);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Summary Cards */
+.summary-card {
+    background-color: var(--dark-blue-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.summary-card h5 {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.summary-card .summary-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.hosts-card .summary-value { color: #4FC3F7; } /* Light Blue */
+.services-card .summary-value { color: #AED581; } /* Light Green */
+.vulnerabilities-card .summary-value { color: var(--accent-red-primary); }
+
+
+/* Findings Table */
+.findings-table-card {
+    background-color: var(--dark-blue-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* DataTable Customization for Dark Theme */
+#resultsTable {
+    color: var(--text-primary);
+}
+
+#resultsTable thead th {
+    color: var(--text-primary);
+    background-color: #293a52; /* Darker header for table */
+    border-bottom: 2px solid var(--accent-red-primary) !important;
+}
+
+#resultsTable tbody tr {
+    border-color: var(--border-color);
+}
+
+#resultsTable tbody tr:hover {
+    background-color: #23344b !important; /* Slightly lighter on hover */
+}
+
+#resultsTable td {
+    border-color: var(--border-color);
+}
+
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate .page-link {
+    color: var(--text-secondary) !important; /* Ensure text is visible */
+}
+
+.dataTables_wrapper .dataTables_length select {
+    background-color: var(--dark-blue-secondary);
+    border: 1px solid var(--border-color);
+}
+.dataTables_wrapper .dataTables_filter input {
+    background-color: var(--dark-blue-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.dataTables_wrapper .dataTables_paginate .page-link {
+    background-color: var(--dark-blue-secondary);
+    border: 1px solid var(--border-color);
+}
+.dataTables_wrapper .dataTables_paginate .page-link:hover {
+    background-color: #23344b;
+    border-color: var(--accent-red-hover);
+}
+.dataTables_wrapper .dataTables_paginate .page-item.active .page-link {
+    background-color: var(--accent-red-primary);
+    border-color: var(--accent-red-primary);
+    color: #fff !important;
+}
+
+
+/* Vulnerability Count Badge */
+.vuln-count-badge {
+    padding: 0.3em 0.6em;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    color: #fff;
+    min-width: 25px; /* Ensure some width even for 0 */
+    text-align: center;
+    display: inline-block;
+}
+
+.vuln-count-badge.none { background-color: var(--success-color); } /* Green for 0 */
+.vuln-count-badge.low { background-color: #FFEB3B; color: #333; } /* Yellow for low */
+.vuln-count-badge.medium { background-color: var(--warning-color); color: #333;} /* Orange for medium */
+.vuln-count-badge.high { background-color: var(--danger-color); } /* Red for high */
+.vuln-count-badge.critical { background-color: #880E4F; } /* Darker Red/Purple for critical */
+
+
+/* Footer */
+.footer {
+    background-color: var(--dark-blue-secondary);
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+/* Utility classes */
+.d-none {
+    display: none !important;
+}
